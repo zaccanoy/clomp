@@ -1,0 +1,14 @@
+{
+  "parser": "babel-eslint",
+  "root": true,
+  "plugins": ["no-loops", "jest", "prettier"],
+  "env": {
+    "jest/globals": true
+  },
+  "extends": ["eslint:recommended", "plugin:react/recommended", "prettier"],
+  "ignorePatterns": ["node_modules", "dist", "jest.config.js"],
+  "rules": {
+    "no-loops/no-loops": 2,
+    "prettier/prettier": 1
+  }
+}
