@@ -8,7 +8,8 @@
     "test": "jest",
     "lint": "eslint . --ext .ts",
     "lint-and-fix": "eslint . --ext .ts --fix",
-    "format": "prettier --config .prettierrc 'src/**/*.ts' --write"
+    "format": "prettier --config .prettierrc 'src/**/*.ts' --write",
+    "clean": "git clean -fXd -e \\!node_modules -e \\!node_modules/**/*"
   },
   "bugs": {
     "url": "https://github.com/zaccanoy/clomp/issues",
