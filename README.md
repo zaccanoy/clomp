@@ -4,7 +4,7 @@ Clomp is a class name composer for React that allows you to use CSS utility fram
 
 # Example
 
-This example illustrates how much more readable an element with a lot of utility classes can be.
+This example illustrates how much more readable an element with a lot of utility classes can be. To see examples in code, see the Jest tests in `src/constructClomp.spec.js` while we work on making more useful examples.
 
 ```jsx
 import React from "react";
