@@ -1,4 +1,4 @@
-![](logo.png =100x100)
+<img src="./logo.png" alt="The Clomp logo" />
 
 Clomp is a class name composer for React that allows you to use CSS utility frameworks in a more readable way. You can use it with any class names, but it was designed specifically with Tailwind CSS in mind.
 
