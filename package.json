@@ -4,16 +4,30 @@
   "description": "A class name composer that helps you style your components with utility styles. It's like styled-components for CSS utility frameworks.",
   "main": "./dist/index.js",
   "scripts": {
-    "build": "babel src -d dist --ignore '**/*.spec.js'",
+    "build": "babel src -d dist",
     "test": "jest",
     "lint": "eslint . --ext .ts",
     "lint-and-fix": "eslint . --ext .ts --fix",
     "format": "prettier --config .prettierrc 'src/**/*.ts' --write"
   },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
+  "bugs": {
+    "url": "https://github.com/zaccanoy/clomp/issues",
+    "email": "zaccanoy@gmail.com"
   },
-  "author": "Zachary Canoy",
+  "keywords": [
+    "css-in-js",
+    "class name composition",
+    "react",
+    "tailwind",
+    "css utility framework"
+  ],
+  "homepage": "https://github.com/zaccanoy/clomp",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zaccanoy/clomp.git"
+  },
+  "author": "Zac Canoy <zaccanoy@gmail.com> (zaccanoy.com)",
+  "private": false,
   "license": "MIT",
   "devDependencies": {
     "@babel/cli": "^7.12.1",
