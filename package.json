@@ -10,6 +10,9 @@
     "lint-and-fix": "eslint . --ext .ts --fix",
     "format": "prettier --config .prettierrc 'src/**/*.ts' --write"
   },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "author": "Zachary Canoy",
   "license": "MIT",
   "devDependencies": {
