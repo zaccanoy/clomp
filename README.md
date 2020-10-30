@@ -67,7 +67,7 @@ You can use Clomp similarly to `styled-components`. In the below example, we'll 
 
 ```jsx
 import React from "react";
-import clomp from "clomp";
+import { clomp } from "clomp";
 
 const NavItem = clomp.a`
   h-full
