@@ -19,7 +19,7 @@ const NavItem = (props) => (
 
 // With Clomp
 
-import clomp from "clomp";
+import { clomp } from "clomp";
 
 const NavItem = clomp.a`
   h-full
@@ -38,7 +38,7 @@ const NavItem = clomp.a`
       animate-ping
 `;
 
-// Using either
+// Using the component
 
 function Nav(props) {
   return (
