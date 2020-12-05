@@ -56,11 +56,12 @@ test("Can see all proper props on child.", () => {
     sm:
       pr-0
       flex-col
+      w-1/2
   `;
 
   const wrapper = mount(<Element />);
 
   expect(wrapper.find("div").prop("className")).toEqual(
-    "cursor-pointer pr-4 flex sm:pr-0 sm:flex-col",
+    "cursor-pointer pr-4 flex sm:pr-0 sm:flex-col sm:w-1/2",
   );
 });
