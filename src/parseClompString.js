@@ -2,7 +2,7 @@ const SPACES = 2;
 
 /** Selects the spaces at the beginning (for counting) and the identifier
  * afterwards. */
-const lineRegex = /^([ ]*)([\w-:_@=()]+)[ ]*$/;
+const lineRegex = /^([ ]*)([\w-:_@=()/]+)[ ]*$/;
 
 function repeat(numRepeat, callback) {
   if (numRepeat > 0) {
