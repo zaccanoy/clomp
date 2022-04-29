@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { mount } from "enzyme";
+import { render, screen } from "@testing-library/react";
 import clomp from "./constructClomp";
 
 test("Can use DOM element constructors", () => {
@@ -21,11 +21,12 @@ test("Can forward a ref to the child component", () => {
   expect(el.ref).toBeTruthy();
 });
 
-test("Can use a pre-existing Component", () => {
-  const Listing = (props) => <li>{props.name}</li>;
+test("Class names are passed to and rendered from a pre-existing component", () => {
+  const Listing = (props) => <li className={props.className}>{props.name}</li>;
 
   Listing.propTypes = {
     name: PropTypes.string,
+    className: PropTypes.string,
   };
 
   const StyledListing = clomp(Listing)`
@@ -38,17 +39,21 @@ test("Can use a pre-existing Component", () => {
       flex-col
   `;
 
-  const wrapper = mount(<StyledListing name="Flower" />);
+  const name = "Flower";
 
-  expect(wrapper.find(Listing).prop("className")).toEqual(
-    "cursor-pointer pr-4 flex sm:pr-0 sm:flex-col",
+  render(
+    <ul>
+      <StyledListing name={name} />
+    </ul>,
   );
 
-  expect(wrapper.find(Listing).childAt(0).html()).toEqual("<li>Flower</li>");
+  expect(screen.getByText(name).className).toEqual(
+    "cursor-pointer pr-4 flex sm:pr-0 sm:flex-col",
+  );
 });
 
-test("Can see all proper props on child.", () => {
-  const Element = clomp.div`
+test("Can see all proper class names on rendered element.", () => {
+  const Element = clomp.h1`
     cursor-pointer
     pr-4
     flex
@@ -59,9 +64,9 @@ test("Can see all proper props on child.", () => {
       w-1/2
   `;
 
-  const wrapper = mount(<Element />);
+  render(<Element />);
 
-  expect(wrapper.find("div").prop("className")).toEqual(
+  expect(screen.getByRole("heading").className).toEqual(
     "cursor-pointer pr-4 flex sm:pr-0 sm:flex-col sm:w-1/2",
   );
 });
