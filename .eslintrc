@@ -1,5 +1,5 @@
 {
-  "parser": "babel-eslint",
+  "parser": "@babel/eslint-parser",
   "root": true,
   "plugins": ["no-loops", "jest", "prettier"],
   "env": {
@@ -10,5 +10,10 @@
   "rules": {
     "no-loops/no-loops": 2,
     "prettier/prettier": 1
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
   }
 }

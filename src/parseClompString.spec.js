@@ -1,3 +1,7 @@
+/**
+ * @jest-environment jsdom
+ */
+
 import parseClompString from "./parseClompString";
 
 test("Displays single class from template", () => {

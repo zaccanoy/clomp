@@ -6,9 +6,9 @@
   "scripts": {
     "build": "babel src -d dist",
     "test": "jest",
-    "lint": "eslint . --ext .ts",
-    "lint-and-fix": "eslint . --ext .ts --fix",
-    "format": "prettier --config .prettierrc 'src/**/*.ts' --write",
+    "lint": "eslint src/** --ext .js",
+    "lint-and-fix": "eslint . --ext .js --fix",
+    "format": "prettier --config .prettierrc 'src/**/*.js' --write",
     "clean": "git clean -fXd -e \\!node_modules -e \\!node_modules/**/*"
   },
   "bugs": {
@@ -48,6 +48,7 @@
     "eslint-plugin-react": "^7.29.4",
     "jest": "^28.0.3",
     "jest-cli": "^28.0.3",
+    "jest-environment-jsdom": "^28.0.2",
     "prettier": "^2.6.2"
   },
   "peerDependencies": {
