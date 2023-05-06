@@ -1,4 +1,4 @@
-import { mount } from "enzyme";
+import { render, screen } from "@testing-library/react";
 import PropTypes from "prop-types";
 import React from "react";
 import clomp from "./constructClomp";
@@ -17,12 +17,16 @@ test("Can forward a ref to the child component", () => {
   `;
 
   const ref = React.createRef();
-  const el = <Container ref={ref} />;
-  expect(el.ref).toBeTruthy();
+  render(<Container ref={ref} />);
+  expect(ref.current).toBeTruthy();
 });
 
 test("Can use a pre-existing Component", () => {
-  const Listing = (props) => <li>{props.name}</li>;
+  const Listing = ({ name, ...props }) => (
+    <li title="A listing" {...props}>
+      {name}
+    </li>
+  );
 
   Listing.propTypes = {
     name: PropTypes.string,
@@ -38,13 +42,14 @@ test("Can use a pre-existing Component", () => {
       flex-col
   `;
 
-  const wrapper = mount(<StyledListing name="Flower" />);
-
-  expect(wrapper.find(Listing).prop("className")).toEqual(
+  render(<StyledListing name="Flower" />);
+  expect(screen.getByTitle("A listing").className).toEqual(
     "cursor-pointer pr-4 flex sm:pr-0 sm:flex-col",
   );
 
-  expect(wrapper.find(Listing).childAt(0).html()).toEqual("<li>Flower</li>");
+  expect(screen.getByTitle("A listing").outerHTML).toEqual(
+    '<li title="A listing" class="cursor-pointer pr-4 flex sm:pr-0 sm:flex-col">Flower</li>',
+  );
 });
 
 test("Can see all proper props on child.", () => {
@@ -59,9 +64,9 @@ test("Can see all proper props on child.", () => {
       w-1/2
   `;
 
-  const wrapper = mount(<Element />);
+  render(<Element title="An element" />);
 
-  expect(wrapper.find("div").prop("className")).toEqual(
+  expect(screen.getByTitle("An element").className).toEqual(
     "cursor-pointer pr-4 flex sm:pr-0 sm:flex-col sm:w-1/2",
   );
 });
