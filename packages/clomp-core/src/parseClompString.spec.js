@@ -143,8 +143,10 @@ test("Returns an empty string given a falsey value instead of a template", () =>
 });
 
 test("Returns a class list based on props", () => {
-  const parseTemplate = (props) => (...args) =>
-    parseClompString(props, ...args);
+  const parseTemplate =
+    (props) =>
+    (...args) =>
+      parseClompString(props, ...args);
 
   expect(parseTemplate({ theme: "wide" })`
     opacity-50

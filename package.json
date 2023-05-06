@@ -10,9 +10,10 @@
   "scripts": {
     "build": "yarn workspace @clomp/core build; yarn workspace @clomp/react build",
     "test": "yarn workspace @clomp/core test; yarn workspace @clomp/react test",
-    "lint": "eslint . --ext .ts",
-    "lint-and-fix": "eslint . --ext .ts --fix",
-    "format": "prettier --config .prettierrc 'src/**/*.ts' --write",
+    "lint": "yarn workspace @clomp/core lint; yarn workspace @clomp/react lint",
+    "lint:fix": "yarn workspace @clomp/core lint:fix; yarn workspace @clomp/react lint:fix",
+    "prettier": "yarn workspace @clomp/core prettier; yarn workspace @clomp/react prettier",
+    "prettier:check": "yarn workspace @clomp/core prettier:check; yarn workspace @clomp/react prettier:check",
     "clean": "git clean -fXd -e \\!node_modules -e \\!node_modules/**/*"
   },
   "bugs": {
