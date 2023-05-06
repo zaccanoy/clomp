@@ -1,3 +1,14 @@
+# THIS LIBRARY IS BEING RE-WORKED
+
+`clomp` aims to solve an opinionated problem of losing the ability to use tagged templates or other functions like `styled` from `styled-components` when using class-based styling systems, while also presenting those classes in a way that's easier to read. In its current form, there are a few issues:
+
+- Tailwind scans source files for class names that it needs to include, meaning those class names need to be fully-formed in the source or they may not be included in a production package. An attempt is being made to solve this using a Babel preprocessor and other solutions are being explored
+- `clomp` is React-specific, with no good reason to be. One of the core problems it solves is presenting structured class names in a more readable way, so this functionality will be extracted into its own module for use in any component library/framework or in the absence of one
+- Needs type definitions
+- `clomp` needs helper tools of some sort to match functionality like the Tailwind class sorter plugin (these plugins solve real problems, and using `clomp` without them could make debugging and such harder)
+
+We're working on solving these problems in the coming months. If you're interested in following progress, watch the repository until we make some issues to track these improvements.
+
 <img src="./logo.png" alt="The Clomp logo" />
 
 Clomp is a class name composer for React that allows you to use CSS utility frameworks in a more readable way. You can use it with any class names, but it was designed specifically with Tailwind CSS in mind.
