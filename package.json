@@ -1,13 +1,20 @@
 {
   "name": "clomp",
   "version": "1.0.2",
-  "description": "A class name composer that helps you style your components with utility styles. It's like styled-components for CSS utility frameworks.",
   "private": true,
-  "license": "MIT",
-  "author": "Zac Canoy <zaccanoy@gmail.com> (zaccanoy.com)",
   "workspaces": [
     "packages/*"
   ],
+  "description": "A class name composer that helps you style your components with utility styles. It's like styled-components for CSS utility frameworks.",
+  "main": "./dist/index.js",
+  "scripts": {
+    "build": "yarn workspace @clomp/core build; yarn workspace @clomp/react build",
+    "test": "yarn workspace @clomp/core test; yarn workspace @clomp/react test",
+    "lint": "eslint . --ext .ts",
+    "lint-and-fix": "eslint . --ext .ts --fix",
+    "format": "prettier --config .prettierrc 'src/**/*.ts' --write",
+    "clean": "git clean -fXd -e \\!node_modules -e \\!node_modules/**/*"
+  },
   "bugs": {
     "url": "https://github.com/zaccanoy/clomp/issues",
     "email": "zaccanoy@gmail.com"
@@ -24,13 +31,7 @@
     "type": "git",
     "url": "https://github.com/zaccanoy/clomp.git"
   },
-  "packageManager": "yarn@3.5.1",
-  "scripts": {
-    "build": "yarn workspace @clomp/core build; yarn workspace @clomp/react build",
-    "test": "yarn workspace @clomp/core test; yarn workspace @clomp/react test",
-    "lint": "eslint . --ext .ts",
-    "lint-and-fix": "eslint . --ext .ts --fix",
-    "format": "prettier --config .prettierrc 'src/**/*.ts' --write",
-    "clean": "git clean -fXd -e \\!node_modules -e \\!node_modules/**/*"
-  }
+  "author": "Zac Canoy <zaccanoy@gmail.com> (zaccanoy.com)",
+  "license": "MIT",
+  "packageManager": "yarn@3.5.1"
 }
